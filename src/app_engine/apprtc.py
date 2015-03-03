@@ -81,7 +81,16 @@ class ParamsPage(webapp2.RequestHandler):
                                                     None, None, None)
     self.response.write(json.dumps(params))
 
-
+class MultiPage(webapp2.RequestHandler):
+  def get(self, room, n):
+    params = {
+      'rooms': [room + str(n) for n in xrange(int(n))]
+    }
+    
+    template = jinja_environment.get_template('multi_template.html')
+    content = template.render(params)
+    self.response.out.write(content)
+    
 app = webapp2.WSGIApplication([
     ('/', MainPage),
     (r'/a/', analytics_page.AnalyticsPage),
@@ -96,4 +105,5 @@ app = webapp2.WSGIApplication([
     (r'/r/(\w+)', RoomPage),
     # TODO(jiayl): Remove the deprecated API when Android is updated.
     (r'/bind/(\w+)', gcm_register.BindPage),
+    (r'/multi/(\w+)/(\w+)', MultiPage),
 ], debug=True)

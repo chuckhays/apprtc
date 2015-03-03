@@ -170,7 +170,7 @@ label {
 #confirm-join-div {
   z-index: 5;
   position: absolute;
-  top: 80%;
+  top: 5%;
   width: 100%;
   text-align: center;
 }
@@ -398,3 +398,13 @@ svg:hover {
 
 /*////// icons CSS end /////////////////////////*/
 
+.container {
+  width: 250px;
+  height: 250px;
+  float: left;
+}
+
+.container iframe {
+    width:100%;
+    height:200px;
+}
