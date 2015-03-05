@@ -443,6 +443,11 @@ AppController.prototype.toggleAudioMute_ = function() {
 AppController.prototype.toggleVideoMute_ = function() {
   this.call_.toggleVideoMute();
   this.muteVideoIconSet_.toggle();
+  if (this.remoteVideo_.muted === false) {
+    this.remoteVideo_.muted = true;
+  } else {
+    this.remoteVideo_.muted = false;
+  }
 };
 
 AppController.prototype.toggleFullScreen_ = function() {
