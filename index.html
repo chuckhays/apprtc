@@ -11,5 +11,9 @@
  <body>
  <p>When this page is loaded directly onbeforeunload should work. When you open it via the link, it won't.</p>
  <a href="index.html" target="_blank">index.html</a>
+ 
+ <p>Open a second tab from the link, and try to close the tab. onbeforeunload won't work. But if you close the original tab, it will.</p>
+ 
+ <p>This currently happens in at least Chrome Beta and Canary.</p>
  </body>
  </html>
