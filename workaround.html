@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+ <head>
+   <title>onbeforeunload repro</title>
+   <script type="text/javascript">
+     window.onbeforeunload = function () {
+       return 'onbeforeunload fired'; 
+     }.bind(this);
+   </script>
+ </head>
+ <body>
+ <p>When this page is loaded directly onbeforeunload should work. When you open it via the link, it won't.</p>
+ <a href="workaround.html" target="_blank">workaround.html</a>
+ 
+ <a href="workaround.html?useless=param" target="_blank">workaround.html?useless=param</a>
+ <a href="workaround.html#anc" target="_blank">workaround.html#anc</a>
+ 
+ <p>Open a second tab from the link, and try to close the tab. onbeforeunload won't work. But if you close the original tab, it will.</p>
+ 
+ <p>This currently happens in at least Chrome Beta and Canary.</p>
+ </body>
+ </html>
